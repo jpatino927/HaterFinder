@@ -16,7 +16,7 @@
         <h1>Survey Questions</h1>
         <h3>Enter Your Name To Find Your Perfect Hater match</h3>
         <input type="input"  id="name" placeholder="First Name"/>
-        <input type="input" id="photo" placeholder="last Name"/>
+        <input type="input" id="photo" placeholder="Picture Link"/>
     </div>
     <hr>
     <div class="row">
@@ -239,6 +239,16 @@
         </div>
 
 </div>
+<hr>
+<footer class="footer text-center">
+    <div class="container">
+        <p>
+        <a href="/app/public/home.html">Home</a>
+        <br />
+        </p>
+    </div>
+</footer>
+
 
 <script type="text/javascript">
     $("#submit").on('click', function(event){
@@ -293,13 +303,13 @@
                                 $("#question10").val()
                         ]
                    }; 
-                console.log(userData);
-                $.post("/api/haters",userData,function(data){
-                $('#match-name').text(data.name);
-                $('#match-img').attr('src', data.photo);
-                $("#resultsModal").modal("toggle");
+                                console.log(userData);
+                                $.post("/api/haters",userData,function(data){
+                                $('#match-name').text(data.name);
+                                $('#match-img').attr('src', data.photo);
+                                $("#resultsModal").modal("toggle");
             
-        })
+                                })
                 } 
                 else{
                     alert('Please complete all fields in order to find your perfect hater. "O.K" hater!!')
@@ -308,127 +318,8 @@
         location.reload();
     });
 
-   
-        
-        
     });
 </script>
-
-<!-- <script type="text/javascript">
-    $("#submit").on("click", function() {
-      function validateForm() {
-        var isValid = true;
-        $(".form-control").each(function() {
-          if ($(this).val() === "") isValid = false;
-        });
-        $(".chosen-select").each(function() {
-          if ($(this).val() === "") isValid = false;
-        });
-        return isValid;
-      }
-      if (validateForm() == true) {
-        var userData = {
-          name: $("#name").val(),
-          photo: $("#photo").val(),
-          score: [
-                $(".question1").val(),
-                $(".question2").val(),
-                $(".question3").val(),
-                $(".question4").val(),
-                $(".question5").val(),
-                $(".question6").val(),
-                $(".question7").val(),
-                $(".question8").val(),
-                $(".question9").val(),
-                $(".question10").val()
-          ]
-        };
-        var currentURL = window.location.origin;
-        $.post(currentURL + "/api/haters", userData, function(data) {
-          $("#match-name").text(data.name);
-          $("'#match-img'").attr("src", data.photo);
-          $("#resultsModal").modal("toggle");
-        });
-      } else {
-        alert("Please fill out all fields before submitting!");
-      }
-      return false;
-    });   
-    
-  </script> -->
-
-   <!-- <script type="text/javascript">
-     
-   
-    $("#submit").on("click", function() {
-         
-        function newForm() {
-            console.log("test1");
-            
-            var completeForm = true;
-            $(".form-control").each(function() {
-                if ($(this).val() === ""){
-                    completeForm = false;
-                }
-            });
-            $(".select").each(function() {
-                if ($(this).val() === ""){
-                    completeForm = false;
-                }
-            });
-            return completeForm;
-        }
-        
-         
-        if (newForm() == true) {
-             
-            var newFriend = {
-                name: $("#name").val().trim(),
-                photo: $("#photo").val().trim(),
-                score: [
-                $("#question1").val(""),
-                $("#question2").val(""),
-                $("#question3").val(""),
-                $("#question4").val(""),
-                $("#question5").val(""),
-                $("#question6").val(""),
-                $("#question7").val(""),
-                $("#question8").val(""),
-                $("#question9").val(""),
-                $("#question10").val("")
-                ]
-            };
-             
-            var currentURL = window.location.origin;
-             
-            $.post(currentURL + "/api/haters", newFriend, function(data) {
-                
-                $("#match-name").text(data.name);
-                $("#match-img").attr("src", data.photo);
-                $("#resultsModal").modal("toggle");
-            });
-            
-            $('#name').val("");
-            $('#photo').val("");
-                $("#question1").val("");
-                $("#question2").val("");
-                $("#question3").val("");
-                $("#question4").val("");
-                $("#question5").val("");
-                $("#question6").val("");
-                $("#question7").val("");
-                $("#question8").val("");
-                $("#question9").val("");
-                $("#question10").val("");
-           
-        } else {
-            alert("Please complete all fields. Thank you.")
-        }
-        
-    });
-
-</script> -->
-
 </body>
  
 </html>
