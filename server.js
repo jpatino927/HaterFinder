@@ -1,7 +1,7 @@
 let express = require('express');
 let app = express()
 //let port = 8000;
-var port = process.env.port || 8000;
+var PORT = process.env.port || 8000;
 app.use(express.urlencoded({extended : true}));
 app.use(express.json());
 
@@ -13,7 +13,7 @@ require('./app/routing/htmlRoutes')(app);
 
 
 
-app.listen(port, function(){
+app.listen(PORT, function(){
     console.log("App listening on port 8000");
 
 })
