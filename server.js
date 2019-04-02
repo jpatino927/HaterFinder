@@ -1,6 +1,10 @@
 let express = require('express');
 let app = express()
-let port = 7777;
+l//et port = 7777;
+let port = process.env.PORT;
+if (port == null || port == "") {
+  port = 8000;
+}
 app.use(express.urlencoded({extended : true}));
 app.use(express.json());
 
@@ -13,6 +17,6 @@ require('./app/routing/htmlRoutes')(app);
 
 
 app.listen(port, function(){
-    console.log("App listening on port 7777");
+    console.log("App listening on port 8000");
 
 })
