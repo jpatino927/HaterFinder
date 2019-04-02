@@ -12,5 +12,8 @@ require('./app/routing/htmlRoutes')(app);
 
 
 
-
 app.listen(process.env.PORT || 8000)
+// app.listen(PORT, function(){
+//     console.log("App listening on port 8000");
+
+// })
